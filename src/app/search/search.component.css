@@ -1,0 +1,18 @@
+.search {
+    width: 600px;
+    height: 23px;
+    text-align: center;
+    font-family: "Roboto", serif;
+    font-style: italic;
+    border-radius: 5px;
+    border: solid .1px #969696;
+    outline: none;
+    box-shadow: 0px 3px 20px -6px #000000;
+    background-color: #edecea;
+}
+
+.search-bar {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}

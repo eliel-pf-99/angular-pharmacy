@@ -1,0 +1,20 @@
+.table-itens {
+    display: flex;
+    justify-content: center;
+    font-family: "Roboto", serif;
+    margin-top: 15px;
+}
+
+.table-itens table {
+    border: solid 1px #000;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.table-itens td {
+    text-align: center;
+}
+
+.tr-content:hover {
+    background-color: aquamarine;
+}

@@ -1,0 +1,8 @@
+@if(isAddProduct){
+<app-new-product (close)="onClose()" />
+}
+
+<div class="header">
+    <app-search />
+    <button class="new-btn" (click)="onStartAddProduct()">Novo</button>
+</div>
