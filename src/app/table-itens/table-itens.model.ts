@@ -1,6 +1,7 @@
 export interface ProductItem {
-    code: string
-    name: string
+    sku: string
+    nome: string
     quantidade: number
     validade: string
+    id?: number
 }

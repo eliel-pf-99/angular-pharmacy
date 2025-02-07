@@ -7,10 +7,10 @@
             <th>Validade</th>
             <th>Dias para vencer</th>
         </tr>
-        @for (product of products; track product.code){
+        @for (product of products; track product.id){
         <tr class="tr-content">
-            <td>{{product.code}}</td>
-            <td>{{product.name}}</td>
+            <td>{{product.sku}}</td>
+            <td>{{product.nome}}</td>
             <td>{{product.quantidade}}</td>
             <td>{{product.validade}}</td>
             <td>{{onGetDayRest(convertStrtoDay(product.validade))}}</td>

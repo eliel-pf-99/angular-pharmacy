@@ -11,14 +11,16 @@ export class TableItensComponent {
   @Input({ required: true }) products!: ProductItem[]
 
   onGetDayRest(day: Date): number {
-    let today: Date = new Date();
-    let difference = day.getTime() - today.getTime();
-    let rest_days: number = Math.round(difference / (1000 * 3600 * 24))
-    return rest_days
+    const oneDay = 24 * 60 * 60 * 1000;
+    const today = new Date();
+    console.log("day: ", day.toDateString())
+    return Math.round(Math.floor((day.getTime() - today.getTime()) / oneDay))
   }
 
   convertStrtoDay(day: string): Date {
-    const parts = day.split('/');
-    return new Date(+parts[2], +parts[1] - 1, +parts[0])
+    // XX/XX/XXXX
+    let [d, m, y] = day.split('/');
+    let date = m + '/' + d + '/' + y
+    return new Date(date)
   }
 }
