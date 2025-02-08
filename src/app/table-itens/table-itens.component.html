@@ -6,6 +6,7 @@
             <th>Quantidade</th>
             <th>Validade</th>
             <th>Dias para vencer</th>
+            <th>Editar</th>
         </tr>
         @for (product of products; track product.id){
         <tr class="tr-content">
@@ -14,6 +15,7 @@
             <td>{{product.quantidade}}</td>
             <td>{{product.validade}}</td>
             <td>{{onGetDayRest(convertStrtoDay(product.validade))}}</td>
+            <td><span class="ion ion-md-attach"></span></td>
         </tr>
         }
 

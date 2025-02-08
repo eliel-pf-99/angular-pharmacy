@@ -11,6 +11,7 @@ import { ProductItem } from '../table-itens/table-itens.model';
 })
 export class NewProductComponent {
   @Output() close = new EventEmitter<void>();
+  @Output() update = new EventEmitter<void>();
 
   enteredSKU = '';
   enteredName = '';
@@ -24,14 +25,26 @@ export class NewProductComponent {
   }
 
   onCreate() {
-    let product: ProductItem = {
-      sku: this.enteredSKU,
+    let product = JSON.stringify({
       nome: this.enteredName,
-      quantidade: Number(this.enteredQtd),
-      validade: this.enteredDate
-    };
-    this.httpClient.post("http://127.0.0.1:8000/api/produtos", product).subscribe(res => {
-      console.log(res);
+      sku: this.enteredSKU,
+      barras: this.enteredBar,
+      quantidade: this.enteredQtd,
+      validade: this.convertDate(this.enteredDate),
     })
+    console.log(product);
+    fetch("http://127.0.0.1:8000/api/produtos", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: product
+    }).then(res => { if (res.ok) this.update.emit() });
+  }
+
+  convertDate(date: string): string {
+    let [y, m, d] = date.split('-');
+    let date_correct = d + '/' + m + '/' + y
+    return date_correct;
   }
 }

@@ -20,6 +20,10 @@ export class AppComponent implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
+    this.onGetData()
+  }
+
+  onGetData() {
     this.httpClient.get<ProductItem[]>("http://127.0.0.1:8000/api/produtos")
       .subscribe(res => {
         this.products = res;

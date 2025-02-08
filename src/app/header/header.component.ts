@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { SearchComponent } from "../search/search.component";
 import { NewProductComponent } from "../new-product/new-product.component";
 
@@ -9,6 +9,7 @@ import { NewProductComponent } from "../new-product/new-product.component";
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+  @Output() update = new EventEmitter<void>();
 
   isAddProduct = false;
 
@@ -22,5 +23,10 @@ export class HeaderComponent {
 
   onStartAddProduct() {
     this.isAddProduct = true;
+  }
+
+  onUpdateData() {
+    this.isAddProduct = false;
+    this.update.emit();
   }
 }
