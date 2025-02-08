@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ProductItem } from './table-itens.model';
 
+
 @Component({
   selector: 'app-table-itens',
   imports: [],
