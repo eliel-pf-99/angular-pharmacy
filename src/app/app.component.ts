@@ -5,6 +5,8 @@ import { ProductsService } from './api/api.service';
 import { ProductItem } from './table-itens/table-itens.model';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TableItensComponent } from "./table-itens/table-itens.component";
+import { FilterByDate } from './filter/filter.model';
+import { convertStrToDate } from './utils';
 
 @Component({
   selector: 'app-root',
@@ -25,12 +27,16 @@ export class AppComponent implements OnInit {
 
   onGetData() {
     this.httpClient.get<ProductItem[]>("http://127.0.0.1:8000/api/produtos")
-      .subscribe(res => {
-        this.products = res;
-        for (let r of res) {
-          console.log(r);
-        }
-      })
+      .subscribe(res => { this.products = res })
+  }
+
+  onGetDataFilter(data: FilterByDate) {
+    if(data.cancel){
+      this.onGetData()
+      return
+    }
+    this.httpClient.get<ProductItem[]>(`http://127.0.0.1:8000/api/produtos/filter/?de=${data.de}&ate=${data.ate}`)
+      .subscribe(res => {this.products = res})
   }
 
   title = 'pharmacy';

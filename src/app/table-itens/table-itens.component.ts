@@ -14,7 +14,6 @@ export class TableItensComponent {
   onGetDayRest(day: Date): number {
     const oneDay = 24 * 60 * 60 * 1000;
     const today = new Date();
-    console.log("day: ", day.toDateString())
     return Math.round(Math.floor((day.getTime() - today.getTime()) / oneDay)) + 1
   }
 

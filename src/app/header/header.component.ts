@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { SearchComponent } from "../search/search.component";
 import { NewProductComponent } from "../new-product/new-product.component";
+import { FilterByDate } from '../filter/filter.model';
 
 @Component({
   selector: 'app-header',
@@ -29,4 +30,6 @@ export class HeaderComponent {
     this.isAddProduct = false;
     this.update.emit();
   }
+
+  
 }

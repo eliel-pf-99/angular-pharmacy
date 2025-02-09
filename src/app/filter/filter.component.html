@@ -6,5 +6,5 @@
     <input type="date" name="ate" id="ate" [(ngModel)]="enteredAte">
 
     <button type="submit" [disabled]="!(enteredDe != '' && enteredAte != '')">Filtrar</button>
-    <button>Limpar</button>
+    <button (click)="onClean()">Limpar</button>
 </form>

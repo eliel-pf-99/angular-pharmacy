@@ -1,8 +1,7 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ProductItem } from '../table-itens/table-itens.model';
-import { convertDate } from '../utils';
+import { convertDateDMY as convertDate } from '../utils';
 
 @Component({
   selector: 'app-new-product',
