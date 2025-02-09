@@ -2,9 +2,9 @@ import { Component, inject, OnInit } from '@angular/core';
 import { HeaderComponent } from "./header/header.component";
 import { FilterComponent } from "./filter/filter.component";
 import { ProductsService } from './api/api.service';
-import { ProductItem } from './table-itens/table-itens.model';
+import { ProductItem } from './table/table.model';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { TableItensComponent } from "./table-itens/table-itens.component";
+import { TableItensComponent } from "./table/table.component";
 import { FilterByDate } from './filter/filter.model';
 import { convertStrToDate } from './utils';
 

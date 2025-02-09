@@ -1,0 +1,22 @@
+@if(isUpdating){
+    <app-edit [id]="selectedId" (close)="onClose()" (update)="onUpdate()"/>
+}
+<div class="table-itens">
+    <table>
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nome</th>
+                <th>Quantidade</th>
+                <th>Validade</th>
+                <th>Dias para vencer</th>
+                <th>Editar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products" app-table-item [product]="product" (selectId)="onEdit($event)"></tr>
+        </tbody>
+
+
+    </table>
+</div>

@@ -14,10 +14,6 @@ export class HeaderComponent {
 
   isAddProduct = false;
 
-  onNew(): void {
-    console.log("New clicked!")
-  }
-
   onClose() {
     this.isAddProduct = false;
   }

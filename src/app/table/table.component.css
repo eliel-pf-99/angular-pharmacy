@@ -15,6 +15,11 @@
     text-align: center;
 }
 
-.tr-content:hover {
-    background-color: aquamarine;
+tr {
+    align-items: center;
+    text-align: center;
+}
+
+tbody tr:hover {
+    background-color: bisque;
 }

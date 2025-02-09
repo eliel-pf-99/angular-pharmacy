@@ -4,4 +4,5 @@ export interface ProductItem {
     quantidade: number
     validade: string
     id?: number
+    barras: string
 }

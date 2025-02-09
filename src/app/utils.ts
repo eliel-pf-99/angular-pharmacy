@@ -13,3 +13,8 @@ export function convertDateMDY(date: string): string {
 export function convertStrToDate(date: string): Date{
     return new Date(convertDateMDY(date))
 }
+
+export function convertDateYMD(date: string): string{
+    let [d, m, y] = date.split('/')
+    return y + '-' + m + '-' + d
+  }
