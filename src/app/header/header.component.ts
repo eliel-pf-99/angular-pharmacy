@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { SearchComponent } from "../search/search.component";
 import { NewProductComponent } from "../new-product/new-product.component";
-import { FilterByDate } from '../filter/filter.model';
 
 @Component({
   selector: 'app-header',
@@ -11,6 +10,7 @@ import { FilterByDate } from '../filter/filter.model';
 })
 export class HeaderComponent {
   @Output() update = new EventEmitter<void>();
+  @Output() go = new EventEmitter<string>();
 
   isAddProduct = false;
 
@@ -27,5 +27,8 @@ export class HeaderComponent {
     this.update.emit();
   }
 
+  onSearch(search: string){
+    this.go.emit(search);
+  }
   
 }

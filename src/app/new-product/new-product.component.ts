@@ -32,7 +32,6 @@ export class NewProductComponent {
       quantidade: this.enteredQtd,
       validade: convertDate(this.enteredDate),
     })
-    console.log(product);
     fetch("http://127.0.0.1:8000/api/produtos", {
       method: 'POST',
       headers: {

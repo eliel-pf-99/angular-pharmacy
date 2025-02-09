@@ -39,5 +39,13 @@ export class AppComponent implements OnInit {
       .subscribe(res => {this.products = res})
   }
 
+  onSearch(search: string){
+    if(search == ''){
+      this.onGetData();
+    }
+      this.httpClient.get<ProductItem[]>(`http://localhost:8000/api/produtos/search/${search}`)
+      .subscribe(res => this.products = res)
+  }
+
   title = 'pharmacy';
 }
