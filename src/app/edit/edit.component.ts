@@ -46,7 +46,7 @@ export class EditComponent implements OnInit {
       quantidade: this.enteredQtd,
       validade: convertDate(this.enteredDate),
     })
-    fetch(`http://127.0.0.1:8000/api/produtos/${this.id}`, {
+    fetch(`https://pharmacy-control.onrender.com/api/produtos/${this.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
