@@ -1,12 +1,10 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { HeaderComponent } from "./header/header.component";
 import { FilterComponent } from "./filter/filter.component";
-import { ProductsService } from './api/api.service';
 import { ProductItem } from './table/table.model';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TableItensComponent } from "./table/table.component";
 import { FilterByDate } from './filter/filter.model';
-import { convertStrToDate } from './utils';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +15,7 @@ import { convertStrToDate } from './utils';
 export class AppComponent implements OnInit {
   products!: ProductItem[];
   httpClient = inject(HttpClient)
+  url = "https://pharmacy-control.onrender.com"
 
   constructor() {
   }
@@ -26,7 +25,7 @@ export class AppComponent implements OnInit {
   }
 
   onGetData() {
-    this.httpClient.get<ProductItem[]>("http://127.0.0.1:8000/api/produtos")
+    this.httpClient.get<ProductItem[]>(this.url + "/api/produtos")
       .subscribe(res => { this.products = res })
   }
 
@@ -35,7 +34,7 @@ export class AppComponent implements OnInit {
       this.onGetData()
       return
     }
-    this.httpClient.get<ProductItem[]>(`http://127.0.0.1:8000/api/produtos/filter/?de=${data.de}&ate=${data.ate}`)
+    this.httpClient.get<ProductItem[]>(this.url + `/api/produtos/filter/?de=${data.de}&ate=${data.ate}`)
       .subscribe(res => {this.products = res})
   }
 
@@ -43,8 +42,13 @@ export class AppComponent implements OnInit {
     if(search == ''){
       this.onGetData();
     }
-      this.httpClient.get<ProductItem[]>(`http://localhost:8000/api/produtos/search/${search}`)
+      this.httpClient.get<ProductItem[]>(this.url + `/api/produtos/search/${search}`)
       .subscribe(res => this.products = res)
+  }
+
+  onDelete(id: number){
+    this.httpClient.delete(this.url + `/api/produtos/${id}`).subscribe(res => console.log(res));
+    this.onGetData();
   }
 
   title = 'pharmacy';

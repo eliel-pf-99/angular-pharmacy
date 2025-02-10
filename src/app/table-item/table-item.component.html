@@ -1,7 +1,6 @@
 
-    <td>{{product.sku}}</td>
-    <td>{{product.nome}}</td>
-    <td>{{product.quantidade}}</td>
-    <td>{{product.validade}}</td>
-    <td>{{onGetDayRest}}</td>
-    <td><mat-icon (click)="onEdit()">edit_square</mat-icon></td>
+    <td (dblclick)="onEdit()">{{product.sku}}</td>
+    <td (dblclick)="onEdit()">{{product.nome}}</td>
+    <td (dblclick)="onEdit()">{{product.quantidade}}</td>
+    <td (dblclick)="onEdit()">{{product.validade}}</td>
+    <td (dblclick)="onEdit()">{{onGetDayRest}}</td>

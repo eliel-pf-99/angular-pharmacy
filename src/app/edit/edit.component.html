@@ -1,36 +1,31 @@
 <div class="backdrop" (click)="onClose()"></div>
 <dialog open>
-    <h2>Novo Produto</h2>
+    <h2>Editar Produto</h2>
     <form class="np" #formCtrl="ngForm" (submit)="onUpdate()">
-        <p>
-            <label for="code">Código: </label>
-            <input type="text" id="code" name="code" [(ngModel)]="enteredSKU" />
-        </p>
-
-        <p>
-            <label for="name">Nome: </label>
+        <label for="name">Nome: 
             <input type="text" name="name" id="name" [(ngModel)]="enteredName">
-        </p>
+        </label>
 
-        <p>
-            <label for="bar">Quantidade: </label>
-            <input type="number" id="bar" name="bar" [(ngModel)]="enteredQtd" />
-        </p>
+    
+        <label for="quantidade">Quantidade: 
+            <input type="number" id="quantidade" name="quantidade" [(ngModel)]="enteredQtd" />
+        </label>
 
-        <p>
-            <label for="validade">Validade: </label>
-            <input type="date" id="validade" name="validade" value="enteredDate" [(ngModel)]="enteredDate" />
-        </p>
+    
+        <label for="validade">Validade: 
+            <input type="date" id="validade" name="validade" [(ngModel)]="enteredDate" />
+        </label>
 
-        <p>
-            <label for="bar">Barras: </label>
+    
+        <label for="bar">Barras: 
             <input type="number" id="bar" name="bar" [(ngModel)]="enteredBar" />
-        </p>
+        </label>
+
 
         <p class="actions">
-            <button type="submit"
-                [disabled]="!(enteredBar != '' && enteredDate != '' && enteredName != '' && enteredSKU != '')">Adicionar</button>
-            <button type="button" (click)="onClose()">Cancelar</button>
+            <button type="submit" class="btn active">Alterar</button>
+            <button type="button" class="btn delete" (click)="onDelete()">Deletar</button>
+            <button type="button" class="btn" (click)="onClose()">Cancelar</button>
         </p>
     </form>
 </dialog>

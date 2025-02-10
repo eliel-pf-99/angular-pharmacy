@@ -13,10 +13,11 @@ import { ProductItem } from '../table/table.model';
 export class EditComponent implements OnInit {
   @Output() close = new EventEmitter<void>();
   @Output() update = new EventEmitter<void>();
+  @Output() delete = new EventEmitter<number>();
   @Input({required: true}) id!: number
 
   ngOnInit(): void {
-    this.httpClient.get<ProductItem>(`http://127.0.0.1:8000/api/produtos/id/${this.id}`)
+    this.httpClient.get<ProductItem>(`https://pharmacy-control.onrender.com/api/produtos/id/${this.id}`)
       .subscribe(res => {
         this.enteredSKU = res.sku;
         this.enteredName = res.nome;
@@ -56,6 +57,10 @@ export class EditComponent implements OnInit {
 
   onClose(){
     this.close.emit();
+  }
+
+  onDelete(){
+    this.delete.emit(this.id);
   }
 
 }

@@ -1,5 +1,5 @@
 @if(isUpdating){
-    <app-edit [id]="selectedId" (close)="onClose()" (update)="onUpdate()"/>
+    <app-edit [id]="selectedId" (close)="onClose()" (update)="onUpdate()" (delete)="onDelete($event)"/>
 }
 <div class="table-itens">
     <table>
@@ -10,11 +10,16 @@
                 <th>Quantidade</th>
                 <th>Validade</th>
                 <th>Dias para vencer</th>
-                <th>Editar</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let product of products" app-table-item [product]="product" (selectId)="onEdit($event)"></tr>
+            <tr 
+                *ngFor="let product of products" 
+                app-table-item 
+                [product]="product" 
+                (selectId)="onEdit($event)"
+                [ngClass]="{'safe': onGetDayRest(convertStrtoDay(product.validade)) > 90, 'warn': onGetDayRest(convertStrtoDay(product.validade)) < 90, 'ohno': onGetDayRest(convertStrtoDay(product.validade)) < 30,'dead': onGetDayRest(convertStrtoDay(product.validade)) < 0}">
+            </tr>
         </tbody>
 
 

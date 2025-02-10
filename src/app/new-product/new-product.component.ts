@@ -32,7 +32,7 @@ export class NewProductComponent {
       quantidade: this.enteredQtd,
       validade: convertDate(this.enteredDate),
     })
-    fetch("http://127.0.0.1:8000/api/produtos", {
+    fetch("https://pharmacy-control.onrender.com/api/produtos", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

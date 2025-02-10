@@ -1,10 +1,9 @@
 <form class="filters" (submit)="onSubmit()">
-    <p>Filtros:</p>
-    <label for="de">De: </label>
+    <label for="de">De:</label>
     <input type="date" name="de" id="de" [(ngModel)]="enteredDe">
-    <label for="ate">Até: </label>
+    <label for="ate">Até:</label>
     <input type="date" name="ate" id="ate" [(ngModel)]="enteredAte">
 
-    <button type="submit" [disabled]="!(enteredDe != '' && enteredAte != '')">Filtrar</button>
-    <button (click)="onClean()">Limpar</button>
+    <button type="submit" class="btn active" [disabled]="!(enteredDe != '' && enteredAte != '')">Filtrar</button>
+    <button class="btn" (click)="onClean()">Limpar</button>
 </form>
