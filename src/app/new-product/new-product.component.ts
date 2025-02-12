@@ -25,13 +25,15 @@ export class NewProductComponent {
   }
 
   onCreate() {
+    this.enteredQtd = String(this.enteredQtd)
     let product = JSON.stringify({
       nome: this.enteredName,
       sku: this.enteredSKU,
       barras: this.enteredBar,
-      quantidade: this.enteredQtd,
+      quantidade: String(this.enteredQtd),
       validade: convertDate(this.enteredDate),
     })
+    console.log(product);
     fetch("https://pharmacy-control.onrender.com/api/produtos", {
       method: 'POST',
       headers: {

@@ -2,30 +2,30 @@
 <dialog open>
     <h2>Novo Produto</h2>
     <form class="np" #formCtrl="ngForm" (submit)="onCreate()">
-        
-            <label for="code">Código: 
-                <input type="text" id="code" name="code" [(ngModel)]="enteredSKU" />
-            </label>
 
-        
-            <label for="name">Nome: 
-                <input type="text" name="name" id="name" [(ngModel)]="enteredName">
-            </label>
+        <label for="code">Código:
+            <input type="text" id="code" name="code" [(ngModel)]="enteredSKU" />
+        </label>
 
-        
-            <label for="bar">Quantidade: 
-                <input type="number" id="bar" name="bar" [(ngModel)]="enteredQtd" />
-            </label>
 
-        
-            <label for="validade">Validade: 
-                <input type="date" id="validade" name="validade" [(ngModel)]="enteredDate" />
-            </label>
+        <label for="name">Nome:
+            <input type="text" name="name" id="name" [(ngModel)]="enteredName">
+        </label>
 
-        
-            <label for="bar">Barras: 
-                <input type="number" id="bar" name="bar" [(ngModel)]="enteredBar" />
-            </label>
+
+        <label for="qtd">Quantidade:
+            <input type="text" id="qtd" name="qtd" [(ngModel)]="enteredQtd" />
+        </label>
+
+
+        <label for="validade">Validade:
+            <input type="date" id="validade" name="validade" [(ngModel)]="enteredDate" />
+        </label>
+
+
+        <label for="bar">Barras:
+            <input type="text" id="bar" name="bar" [(ngModel)]="enteredBar" />
+        </label>
 
         <p class="actions">
             <button type="submit" class="btn active"

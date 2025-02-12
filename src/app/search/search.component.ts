@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import {  FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-search',
@@ -12,7 +12,14 @@ export class SearchComponent {
 
   enteredSearch = '';
 
-  OnChange(){
+  OnChange() {
     this.go.emit(this.enteredSearch);
   }
+
+  onKeyDown(event: any) {
+    if (event.key == "Enter") {
+      this.go.emit(this.enteredSearch);
+    }
+  }
+
 }

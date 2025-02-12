@@ -2,23 +2,23 @@
 <dialog open>
     <h2>Editar Produto</h2>
     <form class="np" #formCtrl="ngForm" (submit)="onUpdate()">
-        <label for="name">Nome: 
+        <label for="name">Nome:
             <input type="text" name="name" id="name" [(ngModel)]="enteredName">
         </label>
 
-    
-        <label for="quantidade">Quantidade: 
+
+        <label for="quantidade">Quantidade:
             <input type="number" id="quantidade" name="quantidade" [(ngModel)]="enteredQtd" />
         </label>
 
-    
-        <label for="validade">Validade: 
+
+        <label for="validade">Validade:
             <input type="date" id="validade" name="validade" [(ngModel)]="enteredDate" />
         </label>
 
-    
-        <label for="bar">Barras: 
-            <input type="number" id="bar" name="bar" [(ngModel)]="enteredBar" />
+
+        <label for="bar">Barras:
+            <input type="text" id="bar" name="bar" [(ngModel)]="enteredBar" />
         </label>
 
 
